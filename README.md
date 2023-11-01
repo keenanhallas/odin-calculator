@@ -4,7 +4,7 @@
 ### Project Goals:
 With this being the final project of the Odin Project foundations course, the goals of this project span the entire set of topics covered so far. There will be many skills that need to be utilized here, and those will be outlined below, but first: a reminder to myself regarding healthy outlook:
 
-- This project will serve as a fantastic encapsulation of everything I've learned so far, and, upon completion, will be a milestone I should be proud of. But this is still just the end of the beginning, and I must go easy on myself for still having much to learn. Any mistakes or struggles are a natural part of the process. Enjoy that process!
+This project will serve as a fantastic encapsulation of everything I've learned so far, and, upon completion, will be a milestone I should be proud of. But this is still just the end of the beginning, and I must go easy on myself for still having much to learn. Any mistakes or struggles are a natural part of the process. Enjoy that process!
 
 Now, on to the high level topics I hope to focus on while completing this project:
 
