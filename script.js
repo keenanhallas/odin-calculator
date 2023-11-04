@@ -1,3 +1,9 @@
+const calculatorState = {
+    numberOne: 0,
+    operator: "",
+    numberTwo: 0,
+};
+
 function operate(num1, operator, num2){
     switch(operator){
         case "+":
