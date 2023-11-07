@@ -8,16 +8,17 @@ body {
     background-color: lightgrey;
     border-top: 15px solid black;
     border-bottom: 15px solid black;
-    width: 325px;
-    min-height: 550px;
+    width: 400px;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .screen-container {
-    min-height: 155px;
-    margin-top: 40px;
+    min-height: 200px;
+    margin-top: 50px;
     width: 85%;
     border-radius: 20px;
     background-color: black;
@@ -38,16 +39,20 @@ body {
 .device-name {
     color: white;
     border-bottom: 1px solid white;
+    font-size: 20px;
 }
 
 .device-type {
     color: lightblue;
+    font-size: 14px;
 }
 
 .screen {
     color: lightblue;
     width: 70%;
     text-align: right;
+    font-size: 22px;
+    font-family: monospace;
     /* border: 1px solid white; */
 }
 
@@ -56,4 +61,30 @@ body {
     min-height: 295px;
     margin-top: 22px;
     width: 85%;
+}
+
+.switch-container {
+    background-color: black;
+    width: 74px;
+    height: 44px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.dot {
+    width: 16px;
+    height: 16px;
+    background-color: darkgreen;
+    border-radius: 50%;
+    margin-top: 3px;
+}
+
+.switch {
+    width: 20px;
+    height: 20px;
+    color: rgb(142, 142, 142);
+    padding: 0px;
 }
