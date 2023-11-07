@@ -57,10 +57,14 @@ body {
 }
 
 .keypad-container {
-    border: 1px solid black;
     min-height: 295px;
     margin-top: 22px;
     width: 85%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: space-evenly;
+    padding-top: 10px;
 }
 
 .switch-container {
@@ -72,6 +76,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 10px;
+    margin-right: 8px;
 }
 
 .dot {
@@ -87,4 +92,36 @@ body {
     height: 20px;
     color: rgb(142, 142, 142);
     padding: 0px;
+}
+
+.key {
+    width: 55px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px;
+    color: white;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.blue {
+    background-color: rgb(0, 140, 255);
+}
+
+.black {
+    background-color: black;
+}
+
+.grey {
+    background-color: rgb(123, 123, 123);
+}
+
+.row-start {
+    margin-left: 14px;
 }
