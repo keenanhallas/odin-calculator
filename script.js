@@ -1,4 +1,4 @@
-const calculatorState = {
+const calcState = {
     numberOne: 0,
     operator: "",
     numberTwo: 0,

@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.calculator {
+    background-color: lightgrey;
+    border-top: 15px solid black;
+    border-bottom: 15px solid black;
+    width: 325px;
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.screen-container {
+    min-height: 155px;
+    margin-top: 40px;
+    width: 85%;
+    border-radius: 20px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.device-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid white; */
+    width: 70%;
+}
+
+.device-name {
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.device-type {
+    color: lightblue;
+}
+
+.screen {
+    color: lightblue;
+    width: 70%;
+    text-align: right;
+    /* border: 1px solid white; */
+}
+
+.keypad-container {
+    border: 1px solid black;
+    min-height: 295px;
+    margin-top: 22px;
+    width: 85%;
+}
