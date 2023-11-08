@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <title>Odin Calculator</title>
 </head>
@@ -14,32 +14,32 @@
                 <div class="device-name">CASIO pocket-8S</div>
                 <div class="device-type">Electronic Calculator</div>
             </div>
-            <div class="screen">58695</div>
+            <div class="screen"></div>
         </div>
         <div class="keypad-container">
             <div class="switch-container">
                 <div class="dot"></div>
                 <div class="switch">||||||</div>
             </div>
-            <div class="key orange">AC</div>
-            <div class="key orange">C</div>
-            <div class="key blue">%</div>
-            <div class="key black row-start">7</div>
-            <div class="key black">8</div>
-            <div class="key black">9</div>
-            <div class="key operation grey">÷</div>
-            <div class="key black row-start">4</div>
-            <div class="key black">5</div>
-            <div class="key black">6</div>
-            <div class="key operation grey">×</div>
-            <div class="key black row-start">1</div>
-            <div class="key black">2</div>
-            <div class="key black">3</div>
-            <div class="key operation grey">-</div>
-            <div class="key black row-start">0</div>
-            <div class="key black">.</div>
-            <div class="key operation grey">=</div>
-            <div class="key operation grey">+</div>
+            <div class="key orange all-clear">AC</div>
+            <div class="key orange clear">C</div>
+            <div class="key blue modulo" data-value="%">%</div>
+            <div class="key black row-start seven" data-value="7">7</div>
+            <div class="key black eight" data-value="8">8</div>
+            <div class="key black nine" data-value="9">9</div>
+            <div class="key operation grey divide" data-value="÷">÷</div>
+            <div class="key black row-start four" data-value="4">4</div>
+            <div class="key black five" data-value="5">5</div>
+            <div class="key black six" data-value="6">6</div>
+            <div class="key operation grey multiply" data-value="×">×</div>
+            <div class="key black row-start one" data-value="1">1</div>
+            <div class="key black" data-value="2">2</div>
+            <div class="key black" data-value="3">3</div>
+            <div class="key operation grey subtract" data-value="-">-</div>
+            <div class="key black row-start zero" data-value="0">0</div>
+            <div class="key black point" data-value=".">.</div>
+            <div class="key operation grey equals">=</div>
+            <div class="key operation grey addition" data-value="+">+</div>
         </div>
     </div>
 </body>
