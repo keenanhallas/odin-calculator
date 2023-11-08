@@ -59,8 +59,6 @@ function parseOrderOfOperations(string){
             calcState.first = "";
             calcState.operator = "";
             calcState.second = "";
-
-            console.log(string);
         }
     
         while(string.indexOf("÷") !== -1){
@@ -101,15 +99,14 @@ function parseOrderOfOperations(string){
             calcState.first = "";
             calcState.operator = "";
             calcState.second = "";
-
-            console.log(string);
         }    
     }
+
+    return string;
 }
 
 function parseScreen(string){ //1+1+1
-    let current = "";
-    string.forEach();
+    string = parseOrderOfOperations(string);
 }
 
 function operate(num1, operator, num2){
@@ -126,3 +123,8 @@ function operate(num1, operator, num2){
             console.log("Operator not recognized!");
     }
 }
+
+let equation = "10+10×10×10";
+console.log(equation);
+equation = parseOrderOfOperations(equation);
+console.log(equation);
