@@ -3,6 +3,17 @@ const calcState = {
     operator: "",
     second: "",
     screenContent: "",
+    allClear(){
+        this.first = "";
+        this.operator = "";
+        this.second = "";
+        this.screenContent = "";
+    },
+    clearLastEquation(){
+        this.first = "";
+        this.operator = "";
+        this.second = "";
+    }
 };
 
 const screen = document.querySelector(".screen");
@@ -13,16 +24,51 @@ keyPad.addEventListener("click", (e) => {
     if(e.target.dataset.value){
         calcState.screenContent += e.target.dataset.value;
         screen.textContent = calcState.screenContent;
-        console.log(calcState.screenContent);
+    } else if(e.target.textContent === "="){
+        calcState.screenContent = solve(calcState.screenContent);
+        screen.textContent = calcState.screenContent;
+        calcState.clearLastEquation();
+        console.log(calcState);
+    } else if(e.target.textContent === "AC"){
+        calcState.allClear();
+        screen.textContent = calcState.screenContent;
     }
 });
 
-//10+10/10 should become 10+1
-//10+10x10 should become 10+100
+function solve(string){
+    string = parseOrderOfOperations(string);
+    string = parsePlusAndMinus(string);
+    return string;
+}
+
+function parsePlusAndMinus(string){
+    calcState.first = 0;
+    calcState.operator = "+";
+    calcState.second = "0";
+    for(let i = 0; i <= string.length - 1; i++){
+        if(string[i] < "/" || string[i] > ":"){
+            calcState.first = operate(calcState.first, calcState.operator, parseInt(calcState.second));
+            calcState.operator = string[i];
+            calcState.second = "";
+            continue;
+        }
+
+        if (string[i] >= "/" &&
+            string[i] <= ":" ||
+            string[i] === "."){
+                calcState.second += string[i];
+                continue;      
+        }
+    }
+
+    calcState.first = operate(calcState.first, calcState.operator, parseInt(calcState.second));
+
+    return calcState.first;
+}
+
 function parseOrderOfOperations(string){
     while(string.includes("×") || string.includes("÷")){
         while(string.indexOf("×") !== -1){
-            let checkNegative = false;
             let index = string.indexOf("×");
             let lowIndex, highIndex;
             calcState.operator = "×";
@@ -61,9 +107,7 @@ function parseOrderOfOperations(string){
 
             string = string.slice(0, lowIndex) + answer + string.slice(highIndex + 1);
             
-            calcState.first = "";
-            calcState.operator = "";
-            calcState.second = "";
+            calcState.allClear();
         }
     
         while(string.indexOf("÷") !== -1){
@@ -105,17 +149,11 @@ function parseOrderOfOperations(string){
             
             string = string.slice(0, lowIndex) + answer + string.slice(highIndex + 1);
             
-            calcState.first = "";
-            calcState.operator = "";
-            calcState.second = "";
+            calcState.allClear();
         }    
     }
 
     return string;
-}
-
-function parseScreen(string){ //1+1+1
-    string = parseOrderOfOperations(string);
 }
 
 function operate(num1, operator, num2){
@@ -127,13 +165,15 @@ function operate(num1, operator, num2){
         case "×":
             return num1 * num2;
         case "÷":
-            return num1 / num2;
+            if(num2 === "0"){
+                calcState.screenContent = "ERROR:Divide by 0";
+                screen.textContent = calcState.screenContent;
+                console.log(calcState);
+                return calcState.screenContent;
+            } else {
+                return num1 / num2;
+            }
         default:
             console.log("Operator not recognized!");
     }
 }
-
-let equation = "10+10×10×-1-1";
-console.log(equation);
-equation = parseOrderOfOperations(equation);
-console.log(equation);
