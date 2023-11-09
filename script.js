@@ -22,6 +22,7 @@ keyPad.addEventListener("click", (e) => {
 function parseOrderOfOperations(string){
     while(string.includes("×") || string.includes("÷")){
         while(string.indexOf("×") !== -1){
+            let checkNegative = false;
             let index = string.indexOf("×");
             let lowIndex, highIndex;
             calcState.operator = "×";
@@ -40,6 +41,10 @@ function parseOrderOfOperations(string){
             }
 
             for(let i = index + 1; i <= string.length - 1; i++){
+                if(string[i] === "-" && string[i - 1] === "×"){
+                    calcState.second += string[i];
+                    continue;
+                }
                 if (string[i] < "/" ||
                     string[i] > ":"){
                         break;
@@ -53,7 +58,7 @@ function parseOrderOfOperations(string){
             }
 
             let answer = operate(calcState.first, calcState.operator, calcState.second).toString();
-            
+
             string = string.slice(0, lowIndex) + answer + string.slice(highIndex + 1);
             
             calcState.first = "";
@@ -80,6 +85,10 @@ function parseOrderOfOperations(string){
             }
 
             for(let i = index + 1; i <= string.length - 1; i++){
+                if(string[i] === "-" && string[i - 1] === "÷"){
+                    calcState.second += string[i];
+                    continue;
+                }
                 if (string[i] < "/" ||
                     string[i] > ":"){
                         break;
@@ -124,7 +133,7 @@ function operate(num1, operator, num2){
     }
 }
 
-let equation = "10+10×10×10";
+let equation = "10+10×10×-1-1";
 console.log(equation);
 equation = parseOrderOfOperations(equation);
 console.log(equation);
