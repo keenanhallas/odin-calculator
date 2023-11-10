@@ -28,7 +28,6 @@ keyPad.addEventListener("click", (e) => {
         calcState.screenContent = solve(calcState.screenContent);
         screen.textContent = calcState.screenContent;
         calcState.clearLastEquation();
-        console.log(calcState);
     } else if(e.target.textContent === "AC"){
         calcState.allClear();
         screen.textContent = calcState.screenContent;
@@ -36,18 +35,32 @@ keyPad.addEventListener("click", (e) => {
 });
 
 function solve(string){
+    // Better to set screen content here?
+    if(!calcState.screenContent){
+        return calcState.screenContent;
+    }
+    if(string.includes("÷0")){
+        return "ERROR:Divide by 0";
+    }
+    if(string[string.length - 1] < "/" ||
+    string[string.length - 1] > ":"){
+        return calcState.screenContent;
+    }
+    console.log(string);
     string = parseOrderOfOperations(string);
+    console.log(string);
     string = parsePlusAndMinus(string);
+
     return string;
 }
 
 function parsePlusAndMinus(string){
     calcState.first = 0;
     calcState.operator = "+";
-    calcState.second = "0";
+    calcState.second = "";
     for(let i = 0; i <= string.length - 1; i++){
-        if(string[i] < "/" || string[i] > ":"){
-            calcState.first = operate(calcState.first, calcState.operator, parseInt(calcState.second));
+        if((string[i] < "/" || string[i] > ":") && string[i] !== "."){
+            calcState.first = operate(calcState.first, calcState.operator, parseFloat(calcState.second));
             calcState.operator = string[i];
             calcState.second = "";
             continue;
@@ -61,9 +74,9 @@ function parsePlusAndMinus(string){
         }
     }
 
-    calcState.first = operate(calcState.first, calcState.operator, parseInt(calcState.second));
+    calcState.first = operate(calcState.first, calcState.operator, parseFloat(calcState.second));
 
-    return calcState.first;
+    return calcState.first.toString();
 }
 
 function parseOrderOfOperations(string){
@@ -165,14 +178,7 @@ function operate(num1, operator, num2){
         case "×":
             return num1 * num2;
         case "÷":
-            if(num2 === "0"){
-                calcState.screenContent = "ERROR:Divide by 0";
-                screen.textContent = calcState.screenContent;
-                console.log(calcState);
-                return calcState.screenContent;
-            } else {
-                return num1 / num2;
-            }
+            return (num1 / num2).toFixed(3);
         default:
             console.log("Operator not recognized!");
     }
