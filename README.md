@@ -20,3 +20,32 @@ Now, on to the high level topics I hope to focus on while completing this projec
 - Solidifying my overall knowledge of and comfort with using JS
 - Trying to use a more methodical approach to debugging, rather than using simple console.logs
 - The continued practice of googling for solutions when stuck
+
+### After-thoughts
+
+Here are a few things I took note of while working on this project, that can hopefully be addressed moving forward in my wev dev jouney:
+
+- With the scale of this project being the biggest so far of the curriculum, organization of code stood out as something I will have to focus on as I do bigger & bigger projects. Knowledge such as how to arrange functions in the file and when to break things out into their own functions will be more and more useful. I am still forming my understanding of how modular should code should be, and how those pieces should fit together and be arranged.
+
+- Where should I have a piece of the algorithm logic if it could be in multiple functions/places in the code? For example, where to convert between numbers and strings if it could happen at multiple points as the data is being passed around. What is best practice?
+
+- I felt a general unsurity about my algorithm. It works, but am I doing things efficiently? How do I apply best practices to this process of creating the algorithm/flow of the program and going beyond something that just works?
+
+- Console.logs were really starting to become a tedious way to debug in a program this size. Not only are they in different sections of the code, making it necessary to hop around a bunch (using time & mental energy), but they don't have as clear of an order compared to a step-through debugger. I need to make a point to start using the dev tools debugger rather than console.logs moving forward, and really become familiar with this process.
+
+- My problem solving/algorithm/pseudocoding process should start to include how data flows through a program and changes at each step. It should also be more granular I think, to plan out the smaller details, such as the nuances of user interactions and the full range of ways a user can interact with the program that may fall outside the program flow I first imagine. I think starting to do diagrams would help immensely.
+
+- I want to learn more about the "proper" way to work with strings and numbers when they need to be converted back and forth to do calculations or populated to the screen. How is the flow of this data and changing types planned/managed/monitored?
+
+- I'm curious to know what a "proper" way to manage the data of this program would be in a professional setting. Due to having studied React in the past, I used a state object to keep track of the data, but I don't know the proper setup for keeping track of data like this. I'm guessing there are clever uses of data structures and their relevant methods to process data more elegantly, but I'm not familiar with them currently. At least my solution worked and is a step in the right direction compared to just having a bunch of independent global variables floating around.
+
+I realize that all of the above probably just needs time to develop and that it's an ongoing process of learning and improvement. I'm early on in my journey. Simply finding a working solution for this project was enough for now.
+
+### Next Steps
+
+Here are some bonus goals for this project for when I feel like circling back and refining things:
+
+- Decimal math is working, but I need to make sure that each number input can only have one decimal point
+- Fix automatic decimal rounding (0.5/2 currently displays 0.2, not 0.25)
+- Different types of clearing to clear all data, just the line entered so far, or the last character typed
+-Refactor/break out functionality into smaller individual functions, such as a function to update screen the screen
